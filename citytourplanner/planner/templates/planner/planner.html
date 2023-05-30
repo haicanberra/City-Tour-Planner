@@ -11,21 +11,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">City Tour Planner</span>
+    <nav class="navbar">
+        <span class="navbar-brand h1">City Tour Planner</span>
     </nav>
-    <div class="container-fluid min-vh-100 d-flex flex-column">
-        <div class="row row-cols-2">
-            <div class="col-md-3 border">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-            <div class="col-md-9 border">
-                {{map|safe}}
-            </div>
+
+    <div class="row row-cols-2">
+        <div class="col-md-3 border">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+        </div>
+        <div class="col-md-9 border">
+            {{map|safe}}
         </div>
     </div>
 
