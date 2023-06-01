@@ -15,12 +15,18 @@
         <span class="navbar-brand h1">City Tour Planner</span>
     </nav>
 
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">{{message}}</div>
+    {% endfor %}
+    {% endif %}
+
     <div class="row row-cols-2">
         <div class="col-md-3 border">
             <form method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
         <div class="col-md-9 border">
