@@ -22,6 +22,7 @@ def planner(request):
 
     address = Search.objects.all().last()
     location = nominatim.query(address)
+    lat, lon = location.toJSON()[0]['lat'], location.toJSON()[0]['lon']
     selector = ['"tourism"="attraction"']
     query = overpassQueryBuilder(area=location,elementType=['node', 'way'],selector=selector,out='body')
     result = overpass.query(query)
@@ -46,12 +47,11 @@ def planner(request):
     #     address.delete()
     #     return HttpResponse('Invalid address?')
     
-    map = folium.Map(location=[53.631611, -113.323975], zoom_control=False)
+    map = folium.Map(location=[lat, lon], zoom_control=False)
     for key in places_nodes:
         folium.Marker(places_nodes[key], tooltip=key, popup=key).add_to(map)
     for key in places_ways:
         folium.Marker(places_ways[key], tooltip=key, popup=key).add_to(map)
-    print(places_nodes, places_ways)
 
     map = map._repr_html_()
     context = {
