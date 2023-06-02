@@ -4,7 +4,9 @@
         "pk": 1,
         "fields": {
             "address": "edmonton",
-            "date": "2022-05-01"
+            "documented": "yes",
+            "tourism_filters": "*",
+            "amenity_filters": "no"
         }
     }
 ]
