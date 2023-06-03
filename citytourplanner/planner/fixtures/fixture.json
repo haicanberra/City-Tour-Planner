@@ -3,10 +3,9 @@
         "model": "planner.Search",
         "pk": 1,
         "fields": {
-            "address": "edmonton",
+            "city": "Edmonton",
             "documented": "yes",
-            "tourism_filters": "*",
-            "amenity_filters": "no"
+            "tourism_filters": "hotel"
         }
     }
 ]

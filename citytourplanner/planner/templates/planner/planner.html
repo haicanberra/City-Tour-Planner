@@ -11,26 +11,29 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <span class="navbar-brand h1">City Tour Planner</span>
-    </nav>
 
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{message.tags}}">{{message}}</div>
-    {% endfor %}
-    {% endif %}
-
-    <div class="row row-cols-2">
-        <div class="col-md-3 border">
-            <form method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="col-md-9 border">
-            {{map|safe}}
+    <div class="container-fluid">
+        <div class="row vh-100 align-items-stretch">
+            <div class="col-md-2 border">
+                <div class="container mt-2">
+                    <form method="POST" enctype="multipart/form-data">
+                        <legend class="border-bottom mb-4">
+                            City Tour Planner
+                        </legend>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}">{{message}}</div>
+                        {% endfor %}
+                        {% endif %}
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-10 border mt-2">
+                {{map|safe}}
+            </div>
         </div>
     </div>
 
@@ -40,6 +43,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // Hide the "amenity" field initially
+            $("#amenity_filters").hide();
+
+            // Show/hide the "amenity" field based on the selection of the "tourism" field
+            $("#tourism_filters").change(function () {
+                var selectedValue = $(this).val();
+                if (selectedValue === "no") {
+                    $("#amenity_filters").show();
+                } else {
+                    $("#amenity_filters").hide();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
