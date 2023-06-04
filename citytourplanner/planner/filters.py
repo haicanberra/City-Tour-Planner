@@ -1,5 +1,3 @@
-
-
 DOCUMENTATIONS = (
     ('yes', 'Yes'),
     ('no', 'No'),

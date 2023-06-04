@@ -1,11 +1,662 @@
 [
     {
-        "model": "planner.Search",
-        "pk": 1,
+        "model": "planner.search",
+        "pk": 101,
         "fields": {
             "city": "Edmonton",
             "documented": "yes",
-            "tourism_filters": "hotel"
+            "tourism_filters": "hotel",
+            "marker": 2
+        }
+    },
+    {
+        "model": "planner.marker",
+        "pk": 2,
+        "fields": {
+            "city": "Edmonton",
+            "places": {
+                "Delta Edmonton Centre Suite Hotel": [
+                    [
+                        53.5436406,
+                        -113.495436
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Edmonton Inn": [
+                    [
+                        53.5686956,
+                        -113.5244619
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Ramada": [
+                    [
+                        53.5827433,
+                        -113.5802652
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Alberta Place Suite Hotel": [
+                    [
+                        53.5402379,
+                        -113.4971179
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Matrix Hotel": [
+                    [
+                        53.5390138,
+                        -113.504327
+                    ],
+                    {
+                        "website": "https://www.matrixedmonton.com"
+                    },
+                    "hotel"
+                ],
+                "Coast Edmonton Plaza": [
+                    [
+                        53.5421378,
+                        -113.5007872
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Greenwood Inn": [
+                    [
+                        53.4820979,
+                        -113.4911108
+                    ],
+                    {
+                        "website": "http://www.greenwoodedmonton.com/en/home/default.aspx"
+                    },
+                    "hotel"
+                ],
+                "Bedfort Inn & Suites": [
+                    [
+                        53.5419445,
+                        -113.589263
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Days Inn": [
+                    [
+                        53.5400033,
+                        -113.502713
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "New West Hotel": [
+                    [
+                        53.55847,
+                        -113.5803048
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Crash Hotel": [
+                    [
+                        53.5443041,
+                        -113.4978379
+                    ],
+                    {
+                        "website": "http://crashhotel.com/"
+                    },
+                    "hotel"
+                ],
+                "Coliseum Inn": [
+                    [
+                        53.5717592,
+                        -113.4532647
+                    ],
+                    {
+                        "website": "https://www.coliseuminn.ca/"
+                    },
+                    "hotel"
+                ],
+                "Chateau Nova": [
+                    [
+                        53.5820541,
+                        -113.5602313
+                    ],
+                    {
+                        "website": "http://www.novahotels.ca/Chateau_Nova_Yellowhead/"
+                    },
+                    "hotel"
+                ],
+                "Sandman Hotel Edmonton West": [
+                    [
+                        53.5404699,
+                        -113.626152
+                    ],
+                    {
+                        "website": "http://www.sandmanhotels.ca/hotels/edmonton-west/"
+                    },
+                    "hotel"
+                ],
+                "Inn & Suites": [
+                    [
+                        53.5427885,
+                        -113.4854516
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Union Bank Inn": [
+                    [
+                        53.540881,
+                        -113.4922585
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Travelodge": [
+                    [
+                        53.4839046,
+                        -113.4945323
+                    ],
+                    {
+                        "website": "http://www.travelodge.com/Travelodge/control/Booking/property_info?propertyId=09761&brandInfo=TL"
+                    },
+                    "hotel"
+                ],
+                "Comfort Inn West": [
+                    [
+                        53.5386415,
+                        -113.6248426
+                    ],
+                    {
+                        "website": "https://www.choicehotels.com/alberta/edmonton/comfort-inn-hotels/cn234 http://www.edmontoncomfortinn.com/"
+                    },
+                    "hotel"
+                ],
+                "Holiday Inn Express & Suites": [
+                    [
+                        53.5986072,
+                        -113.41577
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Four Points by Sheraton": [
+                    [
+                        53.5097782,
+                        -113.4417934
+                    ],
+                    {
+                        "website": "https://www.starwoodhotels.com/fourpoints/property/overview/index.html?propertyID=1544&EM=VTY_FP_1544_EDMONTON_PROP_OVERVIEW"
+                    },
+                    "hotel"
+                ],
+                "Rosslyn Inn & Suites": [
+                    [
+                        53.598006,
+                        -113.4928216
+                    ],
+                    {
+                        "website": "https://www.rosslyninnandsuites.com/"
+                    },
+                    "hotel"
+                ],
+                "Courtyard Marriott Edmonton": [
+                    [
+                        53.5406959,
+                        -113.4881634
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "West Edmonton Mall Inn": [
+                    [
+                        53.5255256,
+                        -113.6236513
+                    ],
+                    {
+                        "website": "http://www.wem.ca/#/stay/home/West-Edmonton-Mall-Inn"
+                    },
+                    "hotel"
+                ],
+                "Comfort Inn & Suites": [
+                    [
+                        53.5383522,
+                        -113.5008182
+                    ],
+                    {
+                        "website": "http://www.comfortinnedmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Aladdin Motel": [
+                    [
+                        53.5585699,
+                        -113.5886806
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Selkirk Hotel": [
+                    [
+                        53.5027221,
+                        -113.5798735
+                    ],
+                    {
+                        "website": "https://www.fortedmontonpark.ca/hotel-selkirk/"
+                    },
+                    "hotel"
+                ],
+                "Sandman Signature": [
+                    [
+                        53.4242027,
+                        -113.4896837
+                    ],
+                    {
+                        "website": "http://www.sandmansignature.com/edmontonsouthlocation.html"
+                    },
+                    "hotel"
+                ],
+                "Best Western South Edmonton Inn & Suites": [
+                    [
+                        53.4232428,
+                        -113.4904542
+                    ],
+                    {
+                        "website": "http://bestwesternalberta.com/hotels/best-western-south-edmonton-inn-and-suites/"
+                    },
+                    "hotel"
+                ],
+                "The Sands Hotel": [
+                    [
+                        53.5807917,
+                        -113.4547718
+                    ],
+                    {
+                        "website": "http://www.sandshoteledmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Super 8": [
+                    [
+                        53.5713546,
+                        -113.613763
+                    ],
+                    {
+                        "website": "http://www.super8.com/hotels/alberta/edmonton/super-8-edmonton-west/hotel-overview"
+                    },
+                    "hotel"
+                ],
+                "Fairmont Hotel MacDonald": [
+                    [
+                        53.5405561,
+                        -113.4891331
+                    ],
+                    {
+                        "website": "https://www.fairmont.com/macdonald-edmonton/",
+                        "wikipedia": "en:Hotel Macdonald",
+                        "wikidata": "Q3145578"
+                    },
+                    "hotel"
+                ],
+                "Radisson Hotel & Convention Center": [
+                    [
+                        53.5145277,
+                        -113.4115333
+                    ],
+                    {
+                        "website": "https://www.radissonhotels.com/en-us/hotels/radisson-convention-edmonton"
+                    },
+                    "hotel"
+                ],
+                "Days Inn & Suites": [
+                    [
+                        53.5382001,
+                        -113.6317766
+                    ],
+                    {
+                        "website": "https://daysinnwestedmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Quality Inn West Harvest": [
+                    [
+                        53.5405648,
+                        -113.6286783
+                    ],
+                    {
+                        "website": "https://www.choicehotels.ca/en/quality-hotel-cn889"
+                    },
+                    "hotel"
+                ],
+                "Best Western Plus Westwood Inn": [
+                    [
+                        53.5406486,
+                        -113.6344556
+                    ],
+                    {
+                        "website": "http://book.bestwestern.com/bestwestern/CA/AB/Edmonton-hotels/BEST-WESTERN-PLUS-Westwood-Inn/Hotel-Overview.do?propertyCode=61029"
+                    },
+                    "hotel"
+                ],
+                "Wingate Inn Edmonton West": [
+                    [
+                        53.5385658,
+                        -113.6370368
+                    ],
+                    {
+                        "website": "https://www.wingatebywyndhamedmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Courtyard Edmonton West": [
+                    [
+                        53.5383849,
+                        -113.6388597
+                    ],
+                    {
+                        "website": "https://www.marriott.com/hotels/travel/yegew-courtyard-edmonton-west/"
+                    },
+                    "hotel"
+                ],
+                "Hampton Inn and Suites": [
+                    [
+                        53.5383196,
+                        -113.6374823
+                    ],
+                    {
+                        "website": "https://hamptoninn3.hilton.com/en/hotels/alberta/hampton-inn-and-suites-by-hilton-edmonton-west-YEGWTHX/index.html"
+                    },
+                    "hotel"
+                ],
+                "Coast Edmonton Plaza Hotel": [
+                    [
+                        53.5423368,
+                        -113.5008782
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Hampton": [
+                    [
+                        53.4234166,
+                        -113.4887512
+                    ],
+                    {
+                        "website": "https://hamptoninn3.hilton.com/en/hotels/alberta/hampton-inn-by-hilton-edmonton-south-alberta-canada-YEGSOHX/index.html"
+                    },
+                    "hotel"
+                ],
+                "Holiday Inn Express": [
+                    [
+                        53.4562066,
+                        -113.4940706
+                    ],
+                    {
+                        "website": "https://www.hiexpress.com/hotels/us/en/edmonton/yegkk/hoteldetail"
+                    },
+                    "hotel"
+                ],
+                "Chateau Nova Hotel & Suites": [
+                    [
+                        53.5699625,
+                        -113.5277534
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Radisson Hotel": [
+                    [
+                        53.4821541,
+                        -113.4945886
+                    ],
+                    {
+                        "website": "https://www.radissonhotels.com/en-us/hotels/radisson-edmonton"
+                    },
+                    "hotel"
+                ],
+                "Sawridge Inn and Conference Centre Edmonton South": [
+                    [
+                        53.4791229,
+                        -113.4909365
+                    ],
+                    {
+                        "website": "https://www.sawridge.com/our-hotels/edmonton-south/"
+                    },
+                    "hotel"
+                ],
+                "Delta Hotel by Marriott": [
+                    [
+                        53.4817525,
+                        -113.4929947
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Ramada South Edmonton": [
+                    [
+                        53.4918383,
+                        -113.4935887
+                    ],
+                    {
+                        "website": "http://www.ramada.com/Ramada/control/Booking/property_info?propertyId=07838"
+                    },
+                    "hotel"
+                ],
+                "Best Western Cedar Park Inn": [
+                    [
+                        53.4884628,
+                        -113.493493
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Executive Royal Hotel": [
+                    [
+                        53.5390445,
+                        -113.6288566
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Metterra Hotel on Whyte": [
+                    [
+                        53.5183394,
+                        -113.4998783
+                    ],
+                    {
+                        "website": "https://www.metterra.com"
+                    },
+                    "hotel"
+                ],
+                "Commercial Hotel": [
+                    [
+                        53.5175905,
+                        -113.4960178
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Hilton Garden Inn West Edmonton": [
+                    [
+                        53.542288,
+                        -113.6251962
+                    ],
+                    {
+                        "website": "http://www.hiltongardeninnedmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Continental Inn & Suites": [
+                    [
+                        53.5406624,
+                        -113.6090759
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "DoubleTree by Hilton Hotel West Edmonton": [
+                    [
+                        53.5553887,
+                        -113.606697
+                    ],
+                    {
+                        "website": "https://www.hilton.com/en/hotels/yegnmdt-doubletree-west-edmonton/"
+                    },
+                    "hotel"
+                ],
+                "The Westin Edmonton": [
+                    [
+                        53.5418598,
+                        -113.4902464
+                    ],
+                    {
+                        "website": "http://www.thewestinedmonton.com/"
+                    },
+                    "hotel"
+                ],
+                "Chateau Louis": [
+                    [
+                        53.5666706,
+                        -113.5228988
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Staybridge Suites West Edmonton, an IHG Hotel": [
+                    [
+                        53.5548906,
+                        -113.6126684
+                    ],
+                    {
+                        "website": "https://www.ihg.com/staybridge/hotels/us/en/edmonton/yegsb/hoteldetail"
+                    },
+                    "hotel"
+                ],
+                "The Sutton Place Hotel": [
+                    [
+                        53.5446828,
+                        -113.4930217
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "JW Marriott Edmonton Ice District & Residences": [
+                    [
+                        53.5460598,
+                        -113.4966468
+                    ],
+                    {
+                        "website": "https://www.marriott.com/hotels/travel/yegjw-jw-marriott-edmonton-ice-district/",
+                        "wikipedia": "en:JW Marriott Edmonton Ice District & Residences",
+                        "wikidata": "Q24191576"
+                    },
+                    "hotel"
+                ],
+                "TownePlace Suites": [
+                    [
+                        53.423717,
+                        -113.4948096
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Varscona Hotel On Whyte": [
+                    [
+                        53.5182611,
+                        -113.5039365
+                    ],
+                    {
+                        "website": "https://www.varscona.com/"
+                    },
+                    "hotel"
+                ],
+                "Fantasyland Hotel": [
+                    [
+                        53.5223333,
+                        -113.6279095
+                    ],
+                    {
+                        "website": "http://www.fantasylandhotel.com/"
+                    },
+                    "hotel"
+                ],
+                "Hyatt Place West Edmonton": [
+                    [
+                        53.5382897,
+                        -113.6330337
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Fairfield Inn & Suites": [
+                    [
+                        53.6014183,
+                        -113.4926046
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "DoubleTree": [
+                    [
+                        53.5445201,
+                        -113.4823955
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Delta Hotel": [
+                    [
+                        53.5439478,
+                        -113.4962177
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Home2 Suites by Hilton Edmonton South": [
+                    [
+                        53.4218798,
+                        -113.4966758
+                    ],
+                    {
+                        "website": "https://www.hilton.com/en/hotels/yeaseht-home2-suites-edmonton-south/"
+                    },
+                    "hotel"
+                ],
+                "Holiday Inn": [
+                    [
+                        53.4230375,
+                        -113.4816784
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Windermere": [
+                    [
+                        53.4305039,
+                        -113.5916223
+                    ],
+                    {},
+                    "hotel"
+                ],
+                "Hampton Inn & Suites": [
+                    [
+                        53.6030665,
+                        -113.5801927
+                    ],
+                    {},
+                    "hotel"
+                ]
+            }
+        }
+    },
+    {
+        "model": "planner.address",
+        "pk": 1,
+        "fields": {
+            "address": "10620, 72 Avenue NW, Queen Alexandra, Greater Strathcona, Edmonton, Alberta, T6E 0X7, Canada"
         }
     }
 ]

@@ -21,7 +21,8 @@
                             City Tour Planner
                         </legend>
                         {% csrf_token %}
-                        {{ form|crispy }}
+                        {{ addressform|crispy }}
+                        {{ searchform|crispy }}
                         {% if messages %}
                         {% for message in messages %}
                         <div class="alert alert-{{message.tags}}">{{message}}</div>
