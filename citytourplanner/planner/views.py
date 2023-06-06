@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 import folium
-from .forms import SearchForm, AddressForm
-from .models import Search, Address, Marker
+from .forms import *
+from .models import *
 from .filters import *
 from .variables import *
+from django.urls import reverse
+from django.middleware.csrf import get_token
 
 from OSMPythonTools.overpass import Overpass, overpassQueryBuilder
 from OSMPythonTools.nominatim import Nominatim
@@ -25,6 +27,8 @@ def planner(request):
         location=[53.631611, -113.323975],
         zoom_control=False,
     )
+    append_path_url = reverse("append_path")
+    csrf_token = get_token(request)
 
     # Submit button pressed basically
     if request.method == "POST":
@@ -70,6 +74,7 @@ def planner(request):
 
                 # Filter, places must have a name, sites are optional, put in a dict
                 tag_filters = ["website", "wikipedia", "wikidata"]
+                counter = 1
                 for i in result.elements():
                     if i.tag("name") != None:
                         if documented == "yes":
@@ -83,13 +88,16 @@ def planner(request):
                                 (j.lat(), j.lon()),
                                 links,
                                 tourism_filters,
+                                counter,
                             ]
                         else:
                             places[i.tag("name")] = [
                                 (i.lat(), i.lon()),
                                 links,
                                 tourism_filters,
+                                counter,
                             ]
+                        counter += 1
                 # Error for no result returned from query
                 if len(places) == 0:
                     Search.objects.filter(
@@ -147,9 +155,10 @@ def planner(request):
         coord = places[key][0]
         links = places[key][1]
         tourism_filters = places[key][2].capitalize().replace("_", " ")
+
         if documented == "yes":
             if len(links) > 0:
-                popup = key
+                popup = '<span style="font-size: 14px;">' + key + "<br>"
                 for f in links:
                     match f:
                         case "website":
@@ -158,6 +167,7 @@ def planner(request):
                             popup += f'<br><a href="https://wikipedia.org/wiki/{(links[f]).replace(" ", "%20")}?uselang=en" target="_blank">{f.capitalize()}</a>'
                         case "wikidata":
                             popup += f'<br><a href="https://www.wikidata.org/wiki/{links[f]}?uselang=en" target="_blank">{f.capitalize()}</a>'
+                popup += "</span>"
                 marker = folium.Marker(
                     coord,
                     tooltip=key,
@@ -166,10 +176,11 @@ def planner(request):
                 )
                 featuregroups[tourism_filters].add_child(marker)
         else:
+            popup = '<span style="font-size: 14px;">' + key + "<br>" + "</span>"
             marker = folium.Marker(
                 coord,
                 tooltip=key,
-                popup=folium.Popup(key, max_width=MAX_POPUP_WIDTH),
+                popup=folium.Popup(popup, max_width=MAX_POPUP_WIDTH),
                 icon=folium.Icon(color=color_dict[tourism_filters]),
             )
             featuregroups[tourism_filters].add_child(marker)
@@ -196,5 +207,11 @@ def planner(request):
 
     # Send to view
     map = map._repr_html_()
-    context = {"map": map, "searchform": searchform, "addressform": addressform}
+    context = {
+        "map": map,
+        "searchform": searchform,
+        "addressform": addressform,
+        "append_path_url": append_path_url,
+        "csrf_token": csrf_token,
+    }
     return render(request, "planner/planner.html", context)

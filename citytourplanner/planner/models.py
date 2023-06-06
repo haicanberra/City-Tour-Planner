@@ -26,3 +26,10 @@ class Address(models.Model):
 
     def __str__(self):
         return self.address
+
+
+class Path(models.Model):
+    paths = models.JSONField(default=list)
+
+    def __str__(self):
+        return str(self.pk)

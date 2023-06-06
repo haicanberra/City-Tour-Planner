@@ -658,5 +658,12 @@
         "fields": {
             "address": "10620, 72 Avenue NW, Queen Alexandra, Greater Strathcona, Edmonton, Alberta, T6E 0X7, Canada"
         }
+    },
+    {
+        "model": "planner.path",
+        "pk": 1,
+        "fields": {
+            "paths": []
+        }
     }
 ]
