@@ -29,7 +29,7 @@ class Address(models.Model):
 
 
 class Path(models.Model):
-    paths = models.JSONField(default=list)
+    paths = models.CharField(max_length=500, null=True)
 
     def __str__(self):
-        return str(self.pk)
+        return self.paths

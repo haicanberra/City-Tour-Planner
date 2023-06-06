@@ -4,6 +4,7 @@ from .forms import *
 from .models import *
 from .filters import *
 from .variables import *
+import openrouteservice as ors
 from django.urls import reverse
 from django.middleware.csrf import get_token
 
@@ -27,13 +28,12 @@ def planner(request):
         location=[53.631611, -113.323975],
         zoom_control=False,
     )
-    append_path_url = reverse("append_path")
-    csrf_token = get_token(request)
 
     # Submit button pressed basically
     if request.method == "POST":
         searchform = SearchForm(request.POST)
         addressform = AddressForm(request.POST)
+        pathform = PathForm(request.POST)
         if searchform.is_valid() and addressform.is_valid():
             search_obj = searchform.save(commit=False)
             marker_obj, created = Marker.objects.get_or_create(city=search_obj.city)
@@ -110,14 +110,16 @@ def planner(request):
                 marker_obj.save()
             search_obj.save()
 
-            address_obj = addressform.save(commit=False)
-            exist2 = Address.objects.filter(address=address_obj.address).count()
-            if exist2:
-                Address.objects.filter(address=address_obj.address).delete()
-            address_obj.save()
+            Address.objects.all().delete()
+            addressform.save()
+
+        if pathform.is_valid():
+            Path.objects.all().delete()
+            pathform.save()
     else:
         searchform = SearchForm(instance=Search.objects.all().last())
         addressform = AddressForm(instance=Address.objects.all().last())
+        pathform = PathForm(instance=Path.objects.all().last())
 
     # Get address attribute from last Address
     last_address_obj = Address.objects.all().last()
@@ -155,10 +157,19 @@ def planner(request):
         coord = places[key][0]
         links = places[key][1]
         tourism_filters = places[key][2].capitalize().replace("_", " ")
+        index = places[key][3]
 
         if documented == "yes":
             if len(links) > 0:
-                popup = '<span style="font-size: 14px;">' + key + "<br>"
+                popup = (
+                    '<span style="font-size: 14px;">'
+                    + "("
+                    + str(index)
+                    + ")"
+                    + "<br>"
+                    + key
+                    + "<br>"
+                )
                 for f in links:
                     match f:
                         case "website":
@@ -176,7 +187,16 @@ def planner(request):
                 )
                 featuregroups[tourism_filters].add_child(marker)
         else:
-            popup = '<span style="font-size: 14px;">' + key + "<br>" + "</span>"
+            popup = (
+                '<span style="font-size: 14px;">'
+                + "("
+                + str(index)
+                + ")"
+                + "<br>"
+                + key
+                + "<br>"
+                + "</span>"
+            )
             marker = folium.Marker(
                 coord,
                 tooltip=key,
@@ -188,6 +208,45 @@ def planner(request):
     # Add feature groups
     for x in featuregroups.values():
         map.add_child(x)
+
+    # Process PATHING
+    vehicle_start = list(reversed([float(alat), float(alon)]))
+    path_obj = Path.objects.all().last()
+    paths = [int(x) for x in path_obj.paths.split(",")]
+    coords = [vehicle_start]
+    places = Marker.objects.filter(city=city).first().places
+    for i in paths:
+        for key in places:
+            if places[key][3] == i:
+                coord = places[key][0]
+                coords.append(list(reversed(coord)))
+    vehicles = [
+        ors.optimization.Vehicle(
+            id=0,
+            profile="driving-car",
+            start=coords[0],
+            end=coords[-1],
+            capacity=[len(paths)],
+        )
+    ]
+    jobs = []
+    for index, coord in enumerate(coords):
+        jobs.append(ors.optimization.Job(id=index, location=coord, amount=[1]))
+    client = ors.Client(key="5b3ce3597851110001cf6248ab50f9fe9e7b4f909c6d2815fd39f3b0")
+    optimized = client.optimization(jobs=jobs, vehicles=vehicles, geometry=True)
+    line_colors = ["green", "orange", "blue", "yellow"]
+    linegroup = folium.FeatureGroup(name="Route")
+    for route in optimized["routes"]:
+        folium.PolyLine(
+            locations=[
+                list(reversed(coords))
+                for coords in ors.convert.decode_polyline(route["geometry"])[
+                    "coordinates"
+                ]
+            ],
+            color=line_colors[route["vehicle"]],
+        ).add_to(linegroup)
+    map.add_child(linegroup)
 
     # Add Map styles
     folium.TileLayer("cartodbpositron").add_to(map)
@@ -211,7 +270,6 @@ def planner(request):
         "map": map,
         "searchform": searchform,
         "addressform": addressform,
-        "append_path_url": append_path_url,
-        "csrf_token": csrf_token,
+        "pathform": pathform,
     }
     return render(request, "planner/planner.html", context)

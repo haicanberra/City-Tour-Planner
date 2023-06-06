@@ -1,5 +1,5 @@
 from django import forms
-from .models import Search, Address
+from .models import *
 from .filters import *
 
 
@@ -8,6 +8,7 @@ class SearchForm(forms.ModelForm):
         required=True,
         label="City",
         max_length=100,
+        widget=forms.TextInput(attrs={"placeholder": "City name"}),
     )
     documented = forms.ChoiceField(
         label="Documentations",
@@ -26,10 +27,23 @@ class SearchForm(forms.ModelForm):
 class AddressForm(forms.ModelForm):
     address = forms.CharField(
         required=True,
-        label="Initial Address",
+        label="Address",
         max_length=500,
+        widget=forms.TextInput(attrs={"placeholder": "Initial address"}),
     )
 
     class Meta:
         model = Address
         fields = ["address"]
+
+
+class PathForm(forms.ModelForm):
+    paths = forms.CharField(
+        label="Path",
+        max_length=100,
+        widget=forms.TextInput(attrs={"placeholder": "Comma seperated integers"}),
+    )
+
+    class Meta:
+        model = Path
+        fields = ["paths"]
