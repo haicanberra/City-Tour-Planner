@@ -1,4 +1,4 @@
-# City-Explorer
+# City Explorer
 
 ## About
 A Python-based full stack web application written in Django for exploring Point of Interest in any city around the world.  
