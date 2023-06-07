@@ -1,0 +1,34 @@
+[
+    {
+        "model": "planner.search",
+        "pk": 1,
+        "fields": {
+            "city": "Edmonton",
+            "documented": "yes",
+            "tourism_filters": "hotel",
+            "marker": 2
+        }
+    },
+    {
+        "model": "planner.marker",
+        "pk": 2,
+        "fields": {
+            "city": "Edmonton",
+            "places": {}
+        }
+    },
+    {
+        "model": "planner.address",
+        "pk": 3,
+        "fields": {
+            "address": "10620, 72 Avenue NW, Queen Alexandra, Greater Strathcona, Edmonton, Alberta, T6E 0X7, Canada"
+        }
+    },
+    {
+        "model": "planner.path",
+        "pk": 4,
+        "fields": {
+            "paths": "0"
+        }
+    }
+]

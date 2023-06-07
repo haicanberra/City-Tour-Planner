@@ -30,6 +30,7 @@ class Address(models.Model):
 
 class Path(models.Model):
     paths = models.CharField(max_length=500, null=True)
+    query = models.JSONField(default=list)
 
     def __str__(self):
         return self.paths
