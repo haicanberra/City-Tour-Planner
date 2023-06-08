@@ -61,6 +61,7 @@ def planner(request):
                 # Query if doesnt exist
                 places = {}
                 documented = search_obj.documented
+                area = nominatim.query(search_obj.city)
                 tourism_filters = search_obj.tourism_filters
                 if tourism_filters == "znone":
                     models = [
@@ -269,7 +270,7 @@ def planner(request):
             vehicles = [
                 ors.optimization.Vehicle(
                     id=0,
-                    profile="driving-car",
+                    profile=["foot-walking", "cycling-regular"],
                     start=coords[0],
                     end=coords[-1],
                     capacity=[len(paths) + 1],
