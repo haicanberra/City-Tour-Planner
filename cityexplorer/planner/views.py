@@ -50,7 +50,7 @@ def planner(request):
                     marker=search_obj.marker,
                     tourism_filters=search_obj.tourism_filters,
                 ).delete()
-                search_obj.marker.places = {
+                Marker.objects.filter(city=search_obj.city).first().places = {
                     key: value
                     for key, value in search_obj.marker.places.items()
                     if search_obj.tourism_filters not in value
