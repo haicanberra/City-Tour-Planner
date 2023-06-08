@@ -54,9 +54,9 @@ pip install -r requirements.txt
 ## Usages
 - In ```cityexplorer/``` execute ```python manage.py runserver```.  
 - In browser, go to ```localhost:8000```.
-- ```zNone```: clear all markers.
-- ```0``` at start: disable path optimization.
-- ```-1``` at start: start from a marker.
+- ```zNone``` modifier: clear all markers.
+- Start path with ```0```: disable path optimization.
+- Start path with ```-1```: start from a marker.
 - Enter marker's index for path optimization.
 
 ## Notes
