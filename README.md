@@ -1,8 +1,10 @@
 <div align="center">
 
-# City Explorer
 
 <img src="./thumbnail.png" width="300">
+
+
+# City Explorer
 
 <img src ="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue">
 
