@@ -30,21 +30,21 @@ A Python-based full stack web application written in Django for exploring Point 
 <a name="packages"></a>
 ## Packages  
 ### <ins>Front-end</ins>
-- Bootstrap 4
-- Django Crispy Forms 
-- Folium
-- HTML
+- Bootstrap 4.
+- Django Crispy Forms .
+- Folium.
+- HTML.
 ### <ins>APIs</ins>
-- Nominatim
-- OpenRouteService
-- OpenStreetMap
-- Overpass
+- Nominatim.
+- OpenRouteService.
+- OpenStreetMap.
+- Overpass.
 ### <ins>Back-end</ins>
-- SQLite3  
+- SQLite3.
 
 <a name="references"></a>
 ## References
-- OpenRouteService [VROOM API](https://github.com/VROOM-Project/vroom/blob/master/docs/API.md)  
+- OpenRouteService [VROOM API](https://github.com/VROOM-Project/vroom/blob/master/docs/API.md).
 
 <a name="specifications"></a>
 ## Specifications
