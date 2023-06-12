@@ -26,7 +26,6 @@
 <a name="about"></a>
 ## About
 City Explorer - Interactive Tourism Map with Routing Functionality  
-A Python-based full stack web application written in Django for exploring Point of Interest in any city around the world.  
 - Developed interactive web application using Django framework with OpenStreetMap API, Nominatim geocoding, Overpass API for real-time filtering and visualization of tourist attractions.  
 - Utilized OpenRouteService API to enable users to input multiple locations and generate optimized routes, exploring attractions efficiently.  
 - User-friendly and dynamically interactable interface with Bootstrap 4, Django Crispy Forms, and Folium powered map.  
