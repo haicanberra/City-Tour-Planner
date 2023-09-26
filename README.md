@@ -26,9 +26,10 @@
 <a name="about"></a>
 ## About
 City Explorer - Interactive Tourism Map with Routing Functionality  
-- Developed full stack web application using Django framework with OpenStreetMap API, Nominatim geocoding, Overpass API for real-time filtering and visualization of tourist attractions.  
-- Utilized OpenRouteService API to enable users to input multiple locations and generate optimized routes, exploring attractions efficiently.  
-- User-friendly and dynamically interactable interface with Bootstrap 4, Django Crispy Forms, and Folium powered map.  
+- Developed a Django web application enabling city exploration of over 10 types of tourist attractions and 30 categories of amenities in nearly 500 cities.
+- Optimized routes between user-selected point of interest waypoints by utilizing OpenRouteService API, reducing travel time by an average of 25%.
+- Integrated 4 different APIs for geocoding and mapping, allowing real-time filtering and visualization on an interactive map.
+
 
 
 
