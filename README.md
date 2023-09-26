@@ -82,7 +82,7 @@ Represents a path to draw and optimize, defined by the user.
 <a name="installation"></a>
 ## Installation
 ```
-python3 -m venv env
+python3 -m venv venv
 source env/bin/activate
 pip install -r requirements.txt
 ```
