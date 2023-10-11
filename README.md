@@ -28,7 +28,7 @@
 Django City Explorer - Interactive Tourism Map with Routing Functionality  
 - Developed a Django web application enabling city exploration of over 10 types of tourist attractions and 30 categories of amenities in nearly 500 cities.
 - Optimized routes between user-selected point of interest waypoints by utilizing OpenRouteService API, reducing travel time by an average of 25%.
-- Integrated 4 different APIs for geocoding and mapping, allowing real-time filtering and visualization on an interactive map.
+- Integrated Nominatim and Overpass API for geocoding and mapping, allowing real-time filtering and visualization on an interactive Folium map.
 
 
 
