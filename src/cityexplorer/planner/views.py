@@ -11,13 +11,18 @@ from django.apps import apps
 
 from OSMPythonTools.overpass import Overpass, overpassQueryBuilder
 from OSMPythonTools.nominatim import Nominatim
+from OSMPythonTools.internal.cacheObject import CacheObject
 from django.contrib import messages
-
 
 # Create your views here.
 def planner(request):
     legends = [HOME]
     exist = False
+
+    # Fix 403 Forbidden Request, Issue 76 on OSMPythonTools
+    def _myUserAgent(self):
+        return 'Hai haicanberra@gmail.com'
+    CacheObject._userAgent = _myUserAgent
 
     # Initialize query and folium variables
     nominatim = Nominatim()
